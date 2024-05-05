@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://0d130f0jhsr4"]
+[gd_scene load_steps=18 format=3 uid="uid://0d130f0jhsr4"]
 
 [ext_resource type="PackedScene" uid="uid://dqnmsms0ol22n" path="res://scene/charachter.tscn" id="1_fvt5y"]
 [ext_resource type="Texture2D" uid="uid://2pvbpwhryueq" path="res://assets/sprites/world_tileset.png" id="2_0b86o"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cdv6tidq1s22r" path="res://scene/kill_zone.tscn" id="6_qmjuq"]
 [ext_resource type="PackedScene" uid="uid://ccx0hrtovept8" path="res://scene/enemy.tscn" id="7_sdy0i"]
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="8_6oj0c"]
+[ext_resource type="Script" path="res://scripts/TopRockEasterEgg.gd" id="9_8la4u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_73rbj"]
 texture = ExtResource("2_0b86o")
@@ -471,6 +472,9 @@ _data = {
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3514r"]
 distance = -24.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nowbp"]
+size = Vector2(122, 24)
+
 [node name="Game" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -546,3 +550,15 @@ shape = SubResource("WorldBoundaryShape2D_3514r")
 [node name="Enemy" parent="." instance=ExtResource("7_sdy0i")]
 position = Vector2(662, 0)
 script = ExtResource("8_6oj0c")
+
+[node name="TopRockEasterEgg" type="Area2D" parent="."]
+position = Vector2(-193, -169)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("9_8la4u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopRockEasterEgg"]
+position = Vector2(-33, -2)
+shape = SubResource("RectangleShape2D_nowbp")
+
+[connection signal="body_entered" from="TopRockEasterEgg" to="TopRockEasterEgg" method="_on_body_entered"]
