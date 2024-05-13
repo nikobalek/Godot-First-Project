@@ -14,7 +14,7 @@ func _process(delta):
 			pass
 		type("Nice thats jumping!")
 		await get_tree().create_timer(5).timeout
-		delete("Nice thats jumping!")
+		delete(text)
 		await get_tree().create_timer(10).timeout
 		queue_free()
 
