@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://0d130f0jhsr4"]
+[gd_scene load_steps=22 format=3 uid="uid://0d130f0jhsr4"]
 
 [ext_resource type="PackedScene" uid="uid://dqnmsms0ol22n" path="res://scene/charachter.tscn" id="1_fvt5y"]
 [ext_resource type="Texture2D" uid="uid://2pvbpwhryueq" path="res://assets/sprites/world_tileset.png" id="2_0b86o"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="8_6oj0c"]
 [ext_resource type="Script" path="res://scripts/TopRockEasterEgg.gd" id="9_8la4u"]
 [ext_resource type="PackedScene" uid="uid://cl1paldgbpmby" path="res://scene/butt.tscn" id="10_1is85"]
+[ext_resource type="FontFile" uid="uid://cohngb6aj8fh2" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="11_ykpqr"]
+[ext_resource type="Script" path="res://scene/type.gd" id="12_omg10"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_73rbj"]
 texture = ExtResource("2_0b86o")
@@ -475,7 +477,22 @@ distance = -24.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nowbp"]
 size = Vector2(122, 24)
 
+[sub_resource type="LabelSettings" id="LabelSettings_qrly0"]
+font_size = 8
+
 [node name="Game" type="Node2D"]
+
+[node name="GameManager" type="Node" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_bg3u8")
@@ -491,7 +508,7 @@ layer_1/tile_data = PackedInt32Array(-458747, 262144, 10, -524283, 262144, 10, -
 metadata/score = 0
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-position = Vector2(-1, -47)
+position = Vector2(0, -47)
 zoom = Vector2(4, 4)
 limit_bottom = 100
 limit_smoothed = true
@@ -641,5 +658,18 @@ shape = SubResource("RectangleShape2D_nowbp")
 
 [node name="Node2D" parent="." instance=ExtResource("10_1is85")]
 position = Vector2(1876, -667)
+
+[node name="hint" type="Label" parent="."]
+offset_left = 72.0
+offset_top = -60.0
+offset_right = 189.0
+offset_bottom = -6.0
+theme_override_fonts/font = ExtResource("11_ykpqr")
+label_settings = SubResource("LabelSettings_qrly0")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+uppercase = true
+script = ExtResource("12_omg10")
 
 [connection signal="body_entered" from="TopRockEasterEgg" to="TopRockEasterEgg" method="_on_body_entered"]
