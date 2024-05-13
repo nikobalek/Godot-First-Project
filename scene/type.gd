@@ -2,6 +2,7 @@ extends Label
 
 var didJump = false
 var typing = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	type("press space for jump")
