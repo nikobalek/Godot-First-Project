@@ -22,12 +22,13 @@ func type(texty):
 	
 	var textC = texty.length()
 	var i = 0
+	var wait = 0.09
 	text=""
 	typing = true
 	
 	while i < textC:
 		text = text + texty[i]
-		await get_tree().create_timer(0.09).timeout
+		await get_tree().create_timer(wait).timeout
 		i += 1
 		
 	typing = false
