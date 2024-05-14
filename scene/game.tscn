@@ -1,6 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://0d130f0jhsr4"]
+[gd_scene load_steps=24 format=3 uid="uid://0d130f0jhsr4"]
 
 [ext_resource type="PackedScene" uid="uid://dqnmsms0ol22n" path="res://scene/charachter.tscn" id="1_fvt5y"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_ksbjj"]
 [ext_resource type="Texture2D" uid="uid://2pvbpwhryueq" path="res://assets/sprites/world_tileset.png" id="2_0b86o"]
 [ext_resource type="PackedScene" uid="uid://c1geddu5lv7pf" path="res://scene/plat_grass.tscn" id="3_knmrq"]
 [ext_resource type="Script" path="res://scripts/score.gd" id="3_w6q8g"]
@@ -9,9 +10,17 @@
 [ext_resource type="PackedScene" uid="uid://ccx0hrtovept8" path="res://scene/enemy.tscn" id="7_sdy0i"]
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="8_6oj0c"]
 [ext_resource type="Script" path="res://scripts/TopRockEasterEgg.gd" id="9_8la4u"]
-[ext_resource type="PackedScene" uid="uid://cl1paldgbpmby" path="res://scene/butt.tscn" id="10_1is85"]
 [ext_resource type="FontFile" uid="uid://cohngb6aj8fh2" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="11_ykpqr"]
 [ext_resource type="Script" path="res://scene/type.gd" id="12_omg10"]
+[ext_resource type="Script" path="res://scene/CanvasLayer.gd" id="14_14nfp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gq3qa"]
+line_spacing = 75.0
+font = ExtResource("11_ykpqr")
+font_size = 40
+font_color = Color(0, 0, 0, 0.792157)
+outline_size = 5
+outline_color = Color(0.766264, 0.762584, 0.199999, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_73rbj"]
 texture = ExtResource("2_0b86o")
@@ -483,16 +492,27 @@ font_size = 8
 [node name="Game" type="Node2D"]
 
 [node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_ksbjj")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("14_14nfp")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
-layout_mode = 2
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 30.0
+offset_top = 34.0
+offset_right = 142.0
+offset_bottom = 84.0
+scale = Vector2(1.3988, 1.38307)
+text = "0"
+label_settings = SubResource("LabelSettings_gq3qa")
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
+[node name="Coin2D36" parent="CanvasLayer/Label" instance=ExtResource("4_x02n3")]
+position = Vector2(22.8768, 23.137)
+scale = Vector2(4.62291, 4.33105)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_bg3u8")
@@ -655,9 +675,6 @@ script = ExtResource("9_8la4u")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopRockEasterEgg"]
 position = Vector2(-33, -2)
 shape = SubResource("RectangleShape2D_nowbp")
-
-[node name="Node2D" parent="." instance=ExtResource("10_1is85")]
-position = Vector2(1876, -667)
 
 [node name="hint" type="Label" parent="."]
 offset_left = 72.0
