@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cdv6tidq1s22r"]
+[gd_scene load_steps=3 format=3 uid="uid://cdv6tidq1s22r"]
 
 [ext_resource type="Script" path="res://scripts/killZone.gd" id="1_61jpn"]
+[ext_resource type="AudioStream" uid="uid://bchix4se82edf" path="res://assets/sounds/hurt.wav" id="2_vwhda"]
 
 [node name="killZone" type="Area2D"]
 position = Vector2(142, 96)
@@ -10,6 +11,10 @@ script = ExtResource("1_61jpn")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.678
+
+[node name="sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_vwhda")
+bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
