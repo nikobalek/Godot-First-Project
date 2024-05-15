@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://0d130f0jhsr4"]
+[gd_scene load_steps=25 format=3 uid="uid://0d130f0jhsr4"]
 
 [ext_resource type="PackedScene" uid="uid://dqnmsms0ol22n" path="res://scene/charachter.tscn" id="1_fvt5y"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_ksbjj"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ccx0hrtovept8" path="res://scene/enemy.tscn" id="7_sdy0i"]
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="8_6oj0c"]
 [ext_resource type="Script" path="res://scripts/TopRockEasterEgg.gd" id="9_8la4u"]
+[ext_resource type="PackedScene" uid="uid://cl1paldgbpmby" path="res://scene/butt.tscn" id="10_1is85"]
 [ext_resource type="FontFile" uid="uid://cohngb6aj8fh2" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="11_ykpqr"]
 [ext_resource type="Script" path="res://scene/type.gd" id="12_omg10"]
 [ext_resource type="Script" path="res://scene/CanvasLayer.gd" id="14_14nfp"]
@@ -688,5 +689,8 @@ vertical_alignment = 1
 autowrap_mode = 2
 uppercase = true
 script = ExtResource("12_omg10")
+
+[node name="Node2D" parent="." instance=ExtResource("10_1is85")]
+position = Vector2(1879, -668)
 
 [connection signal="body_entered" from="TopRockEasterEgg" to="TopRockEasterEgg" method="_on_body_entered"]
