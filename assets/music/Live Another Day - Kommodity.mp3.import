@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dx4g50vqj84pn"
+path="res://.godot/imported/Live Another Day - Kommodity.mp3-dd2e8630f707384cf002decbd0c2fb9d.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Live Another Day - Kommodity.mp3"
+dest_files=["res://.godot/imported/Live Another Day - Kommodity.mp3-dd2e8630f707384cf002decbd0c2fb9d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
