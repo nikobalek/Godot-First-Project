@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var jump_sfx = $jump_sfx
 
 const SPEED = 150.0
 const JUMP_VELOCITY = -250.0
@@ -22,6 +23,7 @@ func _physics_process(delta):
 		if is_on_floor():
 			jumps = 0
 		if jumps < 2:
+			jump_sfx.play()
 			velocity.y = JUMP_VELOCITY
 			jumps += 1
 
