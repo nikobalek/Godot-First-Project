@@ -7,7 +7,8 @@ extends Area2D
 func _on_body_entered(body):
 	Engine.time_scale = 0.5
 	body.get_node("CollisionShape2D").queue_free()
-	character_body_2d.set_speed(0)
+	character_body_2d.canMove = false
+	character_body_2d.canJump = false
 	print("you died")
 	sfx.play()
 	timer.start()
