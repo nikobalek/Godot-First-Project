@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_ksbjj"]
 [ext_resource type="Texture2D" uid="uid://2pvbpwhryueq" path="res://assets/sprites/world_tileset.png" id="2_0b86o"]
 [ext_resource type="PackedScene" uid="uid://c1geddu5lv7pf" path="res://scene/plat_grass.tscn" id="3_knmrq"]
-[ext_resource type="Script" path="res://scripts/score.gd" id="3_w6q8g"]
 [ext_resource type="PackedScene" uid="uid://deyacu7gu05w8" path="res://scene/coin_2d.tscn" id="4_x02n3"]
 [ext_resource type="PackedScene" uid="uid://cdv6tidq1s22r" path="res://scene/kill_zone.tscn" id="6_qmjuq"]
 [ext_resource type="PackedScene" uid="uid://ccx0hrtovept8" path="res://scene/enemy.tscn" id="7_sdy0i"]
@@ -12,8 +11,8 @@
 [ext_resource type="Script" path="res://scripts/TopRockEasterEgg.gd" id="9_8la4u"]
 [ext_resource type="PackedScene" uid="uid://cl1paldgbpmby" path="res://scene/butt.tscn" id="10_1is85"]
 [ext_resource type="FontFile" uid="uid://cohngb6aj8fh2" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="11_ykpqr"]
-[ext_resource type="Script" path="res://scene/type.gd" id="12_omg10"]
-[ext_resource type="Script" path="res://scene/CanvasLayer.gd" id="14_14nfp"]
+[ext_resource type="Script" path="res://scripts/type.gd" id="12_omg10"]
+[ext_resource type="Script" path="res://scripts/CanvasLayer.gd" id="14_14nfp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gq3qa"]
 line_spacing = 75.0
@@ -439,6 +438,15 @@ texture = ExtResource("2_0b86o")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_73rbj")
 
+[sub_resource type="GDScript" id="GDScript_e6pbn"]
+script/source = "extends Node
+
+var score = 0
+
+func add(number):
+	score += number
+"
+
 [sub_resource type="Animation" id="Animation_i4l5k"]
 length = 0.001
 tracks/0/type = "value"
@@ -535,7 +543,7 @@ limit_bottom = 100
 position_smoothing_enabled = true
 
 [node name="Score" type="Node" parent="CharacterBody2D"]
-script = ExtResource("3_w6q8g")
+script = SubResource("GDScript_e6pbn")
 
 [node name="Platform_grass2D" parent="." instance=ExtResource("3_knmrq")]
 position = Vector2(-28, -38)
