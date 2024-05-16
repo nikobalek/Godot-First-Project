@@ -500,10 +500,10 @@ script = ExtResource("1_ksbjj")
 script = ExtResource("14_14nfp")
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = 30.0
-offset_top = 34.0
-offset_right = 142.0
-offset_bottom = 84.0
+offset_left = 20.0
+offset_top = 33.0
+offset_right = 132.0
+offset_bottom = 83.0
 scale = Vector2(1.3988, 1.38307)
 text = "0"
 label_settings = SubResource("LabelSettings_gq3qa")
@@ -512,7 +512,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Coin2D36" parent="CanvasLayer/Label" instance=ExtResource("4_x02n3")]
-position = Vector2(22.8768, 23.137)
+position = Vector2(27.881, 22.4139)
 scale = Vector2(4.62291, 4.33105)
 
 [node name="TileMap" type="TileMap" parent="."]
