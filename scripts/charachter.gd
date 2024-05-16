@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var jump_sfx = $jump_sfx
 
-const SPEED = 150.0
+var SPEED = 150.0
 const JUMP_VELOCITY = -280.0
 
 var jumps = 0
@@ -51,3 +51,6 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+func set_speed(val):
+	SPEED = val

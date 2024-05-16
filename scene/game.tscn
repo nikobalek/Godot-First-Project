@@ -532,7 +532,6 @@ metadata/score = 0
 position = Vector2(0, -47)
 zoom = Vector2(4, 4)
 limit_bottom = 100
-limit_smoothed = true
 position_smoothing_enabled = true
 
 [node name="Score" type="Node" parent="CharacterBody2D"]
